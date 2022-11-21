@@ -6,3 +6,54 @@ body {
     flex-direction: column;
     justify-content: space-between;
 }
+
+.empty-list {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.leaf {
+    margin-bottom: 7px;
+}
+
+.empty-list_title {
+    font-size: 32px;
+    font-weight: 400;
+}
+
+.d-flex {
+    display: flex;
+}
+
+.task-title {
+    padding-top: 10px;
+    font-size: 22px;
+    font-weight: 400;
+}
+
+.task-title_buttons {
+    display: flex;
+    column-gap: 7px;
+}
+
+.btn-action {
+    background-color: #fff;
+    padding: 8px 10px;
+    cursor: pointer;
+    border: 0;
+    border-radius: 6px;
+    transition: opacity 0.2s ease-in;
+    opacity: 0.5;
+}
+.btn-action:hover {
+    background-color: #e0e5ea;
+    opacity: 1;
+}
+
+.btn-action img {
+    pointer-events: none;
+}
