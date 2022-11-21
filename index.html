@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="./css/style.css">
-    <link rel="stylesheet" href="./css/main.css">
     <title>ToDo List</title>
 </head>
 <body>
@@ -14,11 +13,10 @@
         <div class="display-4 mb-2">ToDo List</div>
         <div class="h4 mb-5">Задачи на сегодня</div>
 
-
         <!-- List of tasks -->
-
         <div class="card mb-4">
             <ul id="tasksList" class="list-group list-group-flush">
+
                 <li id="emptyList" class="list-group-item empty-list">
                     <img src="./img/leaf.svg" alt="empty" width="48" class="leaf">
                     <div class="empty-list_title">Пустой список задач</div>
@@ -51,7 +49,7 @@
         <div class="card-body">
             <form id="form">
                 <div class="form-group">
-                    <input type="text" class="form-control" id="taskInput" placeholder="Текст задачи">
+                    <input type="text" class="form-control" id="taskInput" placeholder="Текст задачи" required>
                 </div>
                 <button type="submit" class="btn btn-success btn-lg active">Добавить</button>
             </form>

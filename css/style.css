@@ -1,10 +1,25 @@
-body {
+html, body {
     min-height: 100vh;
+}
+
+body {
     padding-top: 40px;
-    background-color: #fff;
+    background-color: #E4E5E7;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+}
+
+.aside {
+    height: 400px;
+}
+
+.main {
+    height: 400px;
+}
+
+.gray {
+    color: #BDBDBD;
 }
 
 .empty-list {
@@ -40,6 +55,11 @@ body {
     column-gap: 7px;
 }
 
+.task-title--done {
+    text-decoration: line-through;
+    color: #CDCDCD;
+}
+
 .btn-action {
     background-color: #fff;
     padding: 8px 10px;
@@ -56,4 +76,9 @@ body {
 
 .btn-action img {
     pointer-events: none;
+}
+
+.card-header {
+    background-color: rgba(0,0,0,.03);
+    border-bottom: 1px solid rgba(0,0,0,.125);
 }
