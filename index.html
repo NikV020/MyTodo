@@ -11,8 +11,8 @@
 </head>
 <body>
     <div class="container">
-        <div class="header mb-2">ToDo List</div>
-        <div class="subtitle mb-5">Задачи на сегодня</div>
+        <div class="display-4 mb-2">ToDo List</div>
+        <div class="h4 mb-5">Задачи на сегодня</div>
 
 
         <!-- List of tasks -->
@@ -24,9 +24,32 @@
                     <div class="empty-list_title">Пустой список задач</div>
                 </li>
 
-                <li class="list-group-item task-content"></li>
+                <li class="list-group-item task-item d-flex justify-content-between">
+                    <span class="task-title">Создать ToDo List</span>
+                    <div class="task-title_buttons">
+                        <button type="button" data-action="done" class="btn-action">
+                            <img src="./img/tick.svg" alt="Done" width="18" height="18">
+                        </button>
+                        <button type="button" data-action="delete" class="btn-action">
+                            <img src="./img/cross.svg" alt="Delete" width="18" height="18">
+                        </button>
+                    </div>
+                </li>
+
             </ul>
+
         </div>
+
+    </div>
+    <!-- //List of tasks -->
+
+
+    <!-- Form -->
+
+    <div class="card bg-light">
+        <div class="card-header">Добавить новую задачу</div>
+
+
     </div>
 
 
