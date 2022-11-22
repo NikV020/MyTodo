@@ -4,6 +4,7 @@ const taskInput = document.querySelector('#taskInput');
 const tasksList = document.querySelector('#tasksList');
 
 
+
 form.addEventListener('submit', (e) => {
     // Отмена отправки формы
     e.preventDefault();
@@ -28,5 +29,9 @@ form.addEventListener('submit', (e) => {
     </li>`;
 
     // Добавление задачи на страницу
+    tasksList.insertAdjacentHTML('beforeend', taskHTML);
 
+    // Очистка input и возврат фокуса
+    taskInput.value = "";
+    taskInput.focus();
 })
