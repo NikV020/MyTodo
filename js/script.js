@@ -4,9 +4,13 @@ const taskInput = document.querySelector('#taskInput');
 const tasksList = document.querySelector('#tasksList');
 const emptyList = document.querySelector('#emptyList');
 
+// Добавление задачи
+form.addEventListener('submit', addTask);
 
-form.addEventListener('submit', addTask)
+// Удаление задачи
+tasksList.addEventListener('click', deleteTask)
 
+// Функции
 function addTask(e) {
  // Отмена отправки формы
  e.preventDefault();
@@ -41,4 +45,8 @@ function addTask(e) {
  if(tasksList.children.length > 1) {
      emptyList.classList.add('none');
  }
+}
+
+function deleteTask(e) {
+   
 }
