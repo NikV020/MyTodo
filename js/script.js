@@ -8,6 +8,10 @@ form.addEventListener('submit', addTask);
 tasksList.addEventListener('click', deleteTask);
 tasksList.addEventListener('click', doneTask);
 
+if(localStorage.getItem('taskHTML')) {
+    tasksList.innerHTML = localStorage.getItem('taskHTML');
+}
+
 // Функции
 function addTask(e) {
  // Отмена отправки формы
@@ -43,6 +47,8 @@ function addTask(e) {
  if(tasksList.children.length > 1) {
      emptyList.classList.add('none');
  }
+
+ saveLS();
 }
 
 function deleteTask(e) {
@@ -56,6 +62,8 @@ function deleteTask(e) {
     if(tasksList.children.length === 1) {
         emptyList.classList.remove('none');
     }
+
+    saveLS();
 }
 
 function doneTask(e) {
@@ -66,4 +74,10 @@ function doneTask(e) {
     const parentNode =  e.target.closest('li');
     const taskTitle = parentNode.querySelector('.task-title');
     taskTitle.classList.toggle('task-title--done')
+
+    saveLS();
+}
+
+function saveLS() {
+    localStorage.setItem('taskHTML', tasksList.innerHTML);
 }
