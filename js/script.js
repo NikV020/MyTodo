@@ -4,14 +4,9 @@ const taskInput = document.querySelector('#taskInput');
 const tasksList = document.querySelector('#tasksList');
 const emptyList = document.querySelector('#emptyList');
 
-// Добавление задачи
 form.addEventListener('submit', addTask);
-
-// Удаление задачи
-tasksList.addEventListener('click', deleteTask)
-
-// Отметка завершения задачи
-tasksList.addEventListener('click', doneTask)
+tasksList.addEventListener('click', deleteTask);
+tasksList.addEventListener('click', doneTask);
 
 // Функции
 function addTask(e) {
@@ -51,22 +46,24 @@ function addTask(e) {
 }
 
 function deleteTask(e) {
-    // Клик точно по кнопке "удалить задачу"
-   if(e.target.dataset.action === 'delete') {
-      const parentNode =  e.target.closest('li');
-      parentNode.remove()
-   }
+    // Клик не по кнопке "удалить задачу"
+    if(e.target.dataset.action !== 'delete') return;
 
-   if(tasksList.children.length === 1) {
-    emptyList.classList.remove('none');
-}
+    // Клик точно по кнопке "удалить задачу"
+    const parentNode =  e.target.closest('li');
+    parentNode.remove()
+
+    if(tasksList.children.length === 1) {
+        emptyList.classList.remove('none');
+    }
 }
 
 function doneTask(e) {
+    // Клик не по кнопке "выполнить задачу"
+    if(e.target.dataset.action !== 'done') return;
+
     // Клик точно по кнопке "выполнить задачу"
-    if(e.target.dataset.action === 'done') {
-        const parentNode =  e.target.closest('li');
-        const taskTitle = parentNode.querySelector('.task-title');
-        taskTitle.classList.toggle('task-title--done')
-    }
+    const parentNode =  e.target.closest('li');
+    const taskTitle = parentNode.querySelector('.task-title');
+    taskTitle.classList.toggle('task-title--done')
 }
