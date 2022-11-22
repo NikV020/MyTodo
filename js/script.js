@@ -48,5 +48,13 @@ function addTask(e) {
 }
 
 function deleteTask(e) {
-   
+    // Клик точно по кнопке "удалить задачу"
+   if(e.target.dataset.action === 'delete') {
+      const parentNode =  e.target.closest('li');
+      parentNode.remove()
+   }
+
+   if(tasksList.children.length === 1) {
+    emptyList.classList.remove('none');
+}
 }
