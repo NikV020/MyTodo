@@ -2,7 +2,7 @@
 const form =  document.querySelector('#form');
 const taskInput = document.querySelector('#taskInput');
 const tasksList = document.querySelector('#tasksList');
-
+const emptyList = document.querySelector('#emptyList');
 
 
 form.addEventListener('submit', (e) => {
@@ -34,4 +34,9 @@ form.addEventListener('submit', (e) => {
     // Очистка input и возврат фокуса
     taskInput.value = "";
     taskInput.focus();
+
+    // Скрытие emptyList
+    if(tasksList.children.length > 1) {
+        emptyList.classList.add('none');
+    }
 })

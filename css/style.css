@@ -18,6 +18,10 @@ body {
     height: 400px;
 }
 
+.none {
+    display: none !important;
+}
+
 .gray {
     color: #BDBDBD;
 }
