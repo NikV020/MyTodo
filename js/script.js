@@ -10,28 +10,7 @@ if (localStorage.getItem('tasks')) {
     tasks = JSON.parse(localStorage.getItem('tasks'));
 }
 
-tasks.forEach((task) => {
-    // Формирование CSS класса
-    const newClass = task.done ? "task-title task-title--done" : "task-title";
-
-    // Разметка для новой задачи
-    const taskHTML = 
-    `
-    <li id="${task.id}" class="list-group-item task-item d-flex justify-content-between">
-        <span class="${newClass}">${task.text}</span>
-        <div class="task-title_buttons">
-            <button type="button" data-action="done" class="btn-action">
-                <img src="./img/tick.svg" alt="Done" width="18" height="18">
-            </button>
-            <button type="button" data-action="delete" class="btn-action">
-                <img src="./img/cross.svg" alt="Delete" width="18" height="18">
-            </button>
-        </div>
-    </li>`;
-
-    // Добавление задачи на страницу
-    tasksList.insertAdjacentHTML('beforeend', taskHTML);
-});
+tasks.forEach((task) => renderTask(task));
 
 checkEmptyList();
 
@@ -61,26 +40,8 @@ function addTask(e) {
     // сохранение списка задач
     saveLocalStorage();
 
-    // Формирование CSS класса
-    const newClass = newTask.done ? "task-title task-title--done" : "task-title";
-
-    // Разметка для новой задачи
-    const taskHTML = 
-    `
-    <li id="${newTask.id}" class="list-group-item task-item d-flex justify-content-between">
-        <span class="${newClass}">${newTask.text}</span>
-        <div class="task-title_buttons">
-            <button type="button" data-action="done" class="btn-action">
-                <img src="./img/tick.svg" alt="Done" width="18" height="18">
-            </button>
-            <button type="button" data-action="delete" class="btn-action">
-                <img src="./img/cross.svg" alt="Delete" width="18" height="18">
-            </button>
-        </div>
-    </li>`;
-
-    // Добавление задачи на страницу
-    tasksList.insertAdjacentHTML('beforeend', taskHTML);
+    // Рендеринг задачи на страницу
+    renderTask(newTask);
 
     // Очистка input и возврат фокуса
     taskInput.value = "";
@@ -153,4 +114,27 @@ function checkEmptyList() {
 
 function saveLocalStorage() {
     localStorage.setItem('tasks', JSON.stringify(tasks))
+}
+
+function renderTask(task) {
+      // Формирование CSS класса
+    const newClass = task.done ? "task-title task-title--done" : "task-title";
+
+    // Разметка для новой задачи
+    const taskHTML = 
+    `
+    <li id="${task.id}" class="list-group-item task-item d-flex justify-content-between">
+        <span class="${newClass}">${task.text}</span>
+        <div class="task-title_buttons">
+            <button type="button" data-action="done" class="btn-action">
+                <img src="./img/tick.svg" alt="Done" width="18" height="18">
+            </button>
+            <button type="button" data-action="delete" class="btn-action">
+                <img src="./img/cross.svg" alt="Delete" width="18" height="18">
+            </button>
+        </div>
+    </li>`;
+
+    // Добавление задачи на страницу
+    tasksList.insertAdjacentHTML('beforeend', taskHTML);
 }
