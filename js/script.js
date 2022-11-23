@@ -57,7 +57,7 @@ function addTask(e) {
 
     // Скрытие emptyList
     if(tasksList.children.length > 1) {
-        emptyList.classList.add('none');
+        emptyList.classList.add('hide');
     }
 
 
