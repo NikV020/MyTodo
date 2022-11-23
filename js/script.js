@@ -94,6 +94,13 @@ function doneTask(e) {
 
     // Клик точно по кнопке "выполнить задачу"
     const parentNode =  e.target.closest('li');
+
+    // Определение ID задачи
+    const id = Number(parentNode.id);
+
+    const task = tasks.find((task) => task.id === id);
+    task.done = !task.done
+
     const taskTitle = parentNode.querySelector('.task-title');
     taskTitle.classList.toggle('task-title--done')
 
