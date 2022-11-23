@@ -33,8 +33,6 @@ function addTask(e) {
     // Формирование CSS класса
     const newClass = newTask.done ? "task-title task-title--done" : "task-title";
 
-    console.log(tasks);
-
     // Разметка для новой задачи
     const taskHTML = 
     `
@@ -71,8 +69,22 @@ function deleteTask(e) {
 
     // Клик точно по кнопке "удалить задачу"
     const parentNode =  e.target.closest('li');
-    parentNode.remove()
 
+
+    // Определение ID задачи
+    const id = Number(parentNode.id);
+
+    // Поиск индекса задачи в массиве
+    const index = tasks.findIndex((task) => task.id === id);
+
+    // Удаление задачи из массива
+    tasks.splice(index, 1);
+
+
+    // Удаление задачи из разметки
+    parentNode.remove();
+
+    // Проверка количества задач в списке и показ/скрытие блока empty-list_title
     if(tasksList.children.length === 1) {
         emptyList.classList.remove('none');
     }
